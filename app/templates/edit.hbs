@@ -1,0 +1,20 @@
+<div style="display:flex">
+  <div style="flex-grow:1">
+    <div> Name: {{model.name}} </div>
+    <div> Age: {{model.age}} </div>
+    <div> Admin: {{if model.isAdmin "Yes" "No"}} </div>
+    <div> Status: {{model.status}} </div>
+  </div>
+  <div style="flex-grow:1">
+    <div> <input type="text" value={{model.name}} oninput={{action (mut model.name) value="target.value"}}> </div>
+    <div> <input type="text" value={{model.age}} oninput={{action (mut model.age) value="target.value"}}> </div>
+    <div> <input type="checkbox" value={{model.age}} oninput={{action (mut model.isAdmin) value="target.value"}}> </div>
+    <div> <select value={{model.status}} onchange={{action (mut model.status) value="target.value"}}>
+      <option> New </option>
+      <option> Verified </option>
+      <option> Closed </option>
+      <option> Under Review </option>
+    </select> </div>
+    <div> <input type="submit" onclick={{action 'save' model}}> </div>
+  </div>
+</div>
